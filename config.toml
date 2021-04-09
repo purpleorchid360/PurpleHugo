@@ -1,0 +1,43 @@
+BaseURL = "https://www.myproductionurl.com/"
+  languageCode = "en-us"
+  title = "My Hugo Site"
+  theme = "samhugobs5theme"
+  relativeURLS = true
+  
+  [permalinks]
+    services = ":title/"
+
+  [params]
+    author = "Blog Author"
+    description = "This is an awesome Hugo Bootstrap site"
+    linkedinurl  = "https://www.linkedin.com/company/zigmamarketing"
+    facebookurl  = "https://www.facebook.com/zigmaads"
+    telephone = "+919884089340"
+    email     = "info@zigmaads.com"
+    twitterurl   = "https://twitter.com/ZigmaLtd"
+    instagramurl = "https://www.instagram.com/zigmamarketing/"
+  
+  [module]
+    [[module.mounts]]
+      source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+      target = "assets/js/bootstrap.bundle.min.js"
+
+  [frontmatter]
+    date = ["date", "publishDate", "lastmod"]
+    lastmod = ["lastmod", ":fileModTime", ":default"]
+
+  sectionPagesMenu = "main"
+
+  [menu]
+
+    [[menu.main]]
+      identifier = "services"
+      title = "Services"
+      url = "/services/"
+      weight = 200
+    
+    [[menu.main]]
+      identifier = "blog"
+      title = "Blog"
+      url = "/blog/"
+      weight = 300

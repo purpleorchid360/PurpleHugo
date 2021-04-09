@@ -1,0 +1,89 @@
+<nav class="navbar navbar-light bg-light fixed-top" id="Navigation">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div>
+            <a class="btn btn-outline-dark" data-bs-toggle="offcanvas" href="#offcanvas" role="button"
+                aria-controls="offcanvas">
+                <i class="bi bi-list"></i>
+            </a>
+            <img src="https://svgsilh.com/svg/295067.svg" alt="" width="30" height="24">
+            <span>{{.Site.Params.author}}</span>
+        </div>
+        <div class="btn-group align-self-center" role="group" aria-label="Contact">
+            {{with .Site.Params.telephone}}
+            <a href="tel:{{.}}" class="btn btn-outline-dark">
+                <i class="bi bi-telephone"></i>
+            </a>{{end}}
+            {{with .Site.Params.email}}
+            <a href="mailto:{{.}}" class="btn btn-outline-dark">
+                <i class="bi bi-envelope"></i>
+            </a>{{end}}
+            {{with .Site.Params.facebookurl}}
+            <a href="{{.}}" class="btn btn-outline-dark">
+                <i class="bi bi-facebook"></i>
+            </a>{{end}}
+            {{with .Site.Params.twitterurl}}
+                <a href="{{.}}" class="btn btn-outline-dark">
+                    <i class="bi bi-twitter"></i>
+            </a>{{end}}
+            {{with .Site.Params.instagramurl}}
+            <a href="{{.}}" class="btn btn-outline-dark">
+                <i class="bi bi-instagram"></i>
+            </a>{{end}}
+            {{with .Site.Params.linkedinurl}}
+            <a href="{{.}}" class="btn btn-outline-dark">
+                <i class="bi bi-linkedin"></i>
+            </a>{{end}}
+        </div>
+    </div>
+    
+</nav>
+<div class="jumbotron text-center">
+    <div class="d-flex justify-content-center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ if .IsHome }} active {{ end }} "
+                            href="{{ .Site.Home.Permalink }}">Home</a>
+                    </li>
+
+                    {{ $currentPage := . }}
+
+                    {{ range .Site.Menus.main.ByWeight }}
+
+                    {{ if .HasChildren }}
+                    <li class="nav-item dropdown">
+                        <a class='nav-link dropdown-toggle  {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{ end }}'
+                            href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ .Title }}
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            {{ range .Children }}
+                            <li>
+                                <a class='dropdown-item  {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{ end }}'
+                                    href="{{ .URL }}"> {{ .Title }}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </li>
+
+                    {{ else }}
+                    <li class="nav-item">
+                        <a class='nav-link {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{ end }}'
+                            href="{{ absURL .URL }}">
+                            {{ .Title }}
+                        </a>
+                    </li>
+                    {{ end }}
+
+                    {{ end }}
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
