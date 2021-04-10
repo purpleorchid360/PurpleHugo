@@ -1,6 +1,6 @@
 BaseURL = "https://www.myproductionurl.com/"
   languageCode = "en-us"
-  title = "My Hugo Site"
+  title = "Samriddhi Consulting"
   theme = "samhugobs5theme"
   relativeURLS = true
   
@@ -16,6 +16,8 @@ BaseURL = "https://www.myproductionurl.com/"
     email     = "info@zigmaads.com"
     twitterurl   = "https://twitter.com/ZigmaLtd"
     instagramurl = "https://www.instagram.com/zigmamarketing/"
+    logo = "/assets/images/samriddhi_consulting_logo_transparent.png"
+    icon = "/assets/images/Samriddhi_Icon.svg"
   
   [module]
     [[module.mounts]]

@@ -14,6 +14,18 @@
 
     {{ partial "services" . }}
 
+    <h2 class="text-center my-3"> Testing</h2>
+    <ul>
+        <!-- Ranges through content/posts/*.md -->
+    {{ $bloop := where $.Site.RegularPages "Section" "services"}}
+    {{ range $bloop }}
+    <li>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+    </li>
+    
+{{ end }}
+    </ul>
 </div>
 
 {{ end }}
